@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&family=Raleway:wght@400;600&display=swap');
+
+@theme {
+  --font-sans: "Open Sans", "Raleway", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", "Poppins", sans-serif;
+  
+  --color-brand-green: #009245;
+  --color-brand-blue: #0076BC;
+  --color-brand-light: #A8E063;
+  --color-off-white: #F5F5F5;
+  
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+}
+
+@layer base {
+  body {
+    @apply bg-off-white text-slate-900 font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+  }
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 146, 69, 0.2);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(0, 118, 188, 0.2);
+}
+
+.glass {
+  @apply bg-white/70 backdrop-blur-md border border-white/20;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes leaf-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
+.animate-leaf {
+  animation: leaf-sway 4s ease-in-out infinite;
+}
+
+@keyframes particle-float {
+  0% { transform: translate(0, 0) scale(1); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translate(100px, -100px) scale(0.5); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particle-float 10s linear infinite;
+}
+
+.glow-soft {
+  filter: drop-shadow(0 0 8px rgba(168, 224, 99, 0.4));
+}
+
